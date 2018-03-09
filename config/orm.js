@@ -11,15 +11,24 @@ function printQuestionMarks(num){
 }
 
 function objToSql(ob) {
-	var arr = [];
+  var arr = [];
 
-	for (var key in ob) {
-		arr.push(key + '=' + ob[key]);
-	}
+ 
+  for (var key in ob) {
+    var value = ob[key];
 
-	return arr.toString();
+    if (Object.hasOwnProperty.call(ob, key)) {
+      
+      if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
+      }
+     
+      arr.push(key + "=" + value);
+    }
+  }
 
-
+  
+  return arr.toString();
 }
 
 var orm = {
