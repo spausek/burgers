@@ -24,7 +24,7 @@ app.set("view engine", "handlebars");
 
 var routes = require("./controllers/burgerController.js");
 
-//app.use(routes);
+app.use(routes);
 
 app.listen(PORT, function() {
   console.log("Listening at localhost:" + PORT);
