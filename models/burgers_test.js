@@ -16,3 +16,18 @@ burger.all(function (data) {
 		
 	}
 });
+
+burger.create(['burger_name', 'devoured'],
+	['Hot Test Burger', false],
+	function(data){
+		console.log('New burger test ' + data.insertId);
+	}
+	);
+
+burger.update({devoured: true}, 'id = 1', function (data) {
+	console.log('\n\nburger.updateOne test...\n\n');
+
+	console.log('Result: ' + data.message);
+});
+
+connection.end();

@@ -32,17 +32,15 @@ function objToSql(ob) {
 }
 
 var orm = {
-	all: (tableInput, cb) =>{
-		var queryString = 'SELECT * FROM' + tableInput + ';';
-		connection.query(queryString, (err, result) =>{
-			if (err) {
-				throw err;
-			}
-
-			cb(result);
-
-		});
-	},
+all: (tableInput, cb) => {
+    var queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
 	
 	create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
